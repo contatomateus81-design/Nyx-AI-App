@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://nyx-bot-creator.vercel.app/sitemap.xml

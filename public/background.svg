@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#09070e"/><stop offset=".52" stop-color="#1b0c2a"/><stop offset="1" stop-color="#08060d"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#9b55f4" stop-opacity=".48"/><stop offset="1" stop-color="#6b2da8" stop-opacity="0"/></radialGradient>
+ <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d5b6ff"/><stop offset=".45" stop-color="#7240a8"/><stop offset="1" stop-color="#1a1027"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="28"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<ellipse cx="800" cy="450" rx="480" ry="410" fill="url(#glow)"/>
+<g opacity=".18" stroke="#b58aff" fill="none"><ellipse cx="800" cy="450" rx="370" ry="220" transform="rotate(-18 800 450)"/><ellipse cx="800" cy="450" rx="300" ry="300"/><ellipse cx="800" cy="450" rx="230" ry="350" transform="rotate(30 800 450)"/></g>
+<g transform="translate(800 430)">
+ <path d="M-155 -150 L-190 -290 Q-110 -250 -70 -190 Q0 -225 70 -190 Q115 -255 190 -290 L155 -145 Q215 -80 190 25 Q170 130 95 180 L55 240 L-55 240 L-95 180 Q-170 130 -190 25 Q-215 -80 -155 -150Z" fill="url(#fur)" stroke="#c7a1ff" stroke-opacity=".7" stroke-width="3"/>
+ <path d="M-142 -155 L-165 -245 L-100 -178Z M142 -155 L165 -245 L100 -178Z" fill="#180e24" stroke="#d7b8ff" stroke-opacity=".6" stroke-width="2"/>
+ <path d="M-120 -40 Q-80 -75 -38 -40 Q-75 -8 -120 -40Z M120 -40 Q80 -75 38 -40 Q75 -8 120 -40Z" fill="#d5b2ff"/>
+ <path d="M-105 -40 L-52 -40 M105 -40 L52 -40" stroke="#f3e8ff" stroke-width="5" stroke-linecap="round"/>
+ <path d="M-25 15 L0 32 L25 15 Q15 55 0 55 Q-15 55 -25 15Z" fill="#1a1027" stroke="#d5b2ff" stroke-width="2"/>
+ <path d="M0 55 L0 82 M0 82 Q-25 103 -48 84 M0 82 Q25 103 48 84" fill="none" stroke="#d5b2ff" stroke-width="3" stroke-linecap="round"/>
+ <path d="M-75 110 Q-35 135 0 118 Q35 135 75 110" fill="none" stroke="#e4d1ff" stroke-opacity=".65" stroke-width="2"/>
+</g>
+<text x="105" y="500" font-family="Georgia,serif" font-style="italic" font-size="142" fill="#d6bdff" opacity=".92">Nyx</text>
+<text x="112" y="550" font-family="monospace" font-size="19" letter-spacing="8" fill="#a58ac8">BOT DEVELOPMENT</text>
+<g transform="translate(1370 440)" fill="none" stroke="#c6a2ff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" opacity=".9"><path d="M-70 -90 L0 5 L70 -90 M0 5 L0 100"/></g>
+<text x="1370" y="590" text-anchor="middle" font-family="monospace" font-size="18" letter-spacing="5" fill="#a58ac8">NYX</text>
+<rect x="0" y="0" width="1600" height="900" fill="none" stroke="#a57ce0" stroke-opacity=".2" stroke-width="3"/>
+</svg>
