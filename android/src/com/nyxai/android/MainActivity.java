@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -34,6 +35,14 @@ public class MainActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return handleUrl(url);
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(
+                    WebView view,
+                    WebResourceRequest request
+            ) {
+                return handleUrl(request.getUrl().toString());
             }
         });
 
