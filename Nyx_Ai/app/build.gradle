@@ -1,0 +1,12 @@
+// build.gradle gerado pelo CindraStudio
+android {
+    namespace 'com.nyxai.app'
+    compileSdk 35
+    defaultConfig {
+        applicationId "com.nyxai.app"
+        minSdk 21
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+    }
+}
