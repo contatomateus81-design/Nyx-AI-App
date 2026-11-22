@@ -74,6 +74,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         tts = new TextToSpeech(this, this);
+        memory = getSharedPreferences(PREFS, MODE_PRIVATE).getString("nyx_memory", "");
         buildInterface();
         if (readApiKey() == null) handler.postDelayed(this::showApiSetup, 350);
         else addMessage("Nyx", "Oi! Sou a Nyx. Estou pronta para conversar com você. 💜");
