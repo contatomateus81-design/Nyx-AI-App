@@ -1,4 +1,7 @@
-// build.gradle gerado pelo CindraStudio
+plugins {
+    id 'com.android.application'
+}
+
 android {
     namespace 'com.nyxai.app'
     compileSdk 35
@@ -7,7 +10,12 @@ android {
         applicationId "com.nyxai.app"
         minSdk 23
         targetSdk 35
-        versionCode 2
-        versionName "2.0-native"
+        versionCode 3
+        versionName "2.1-native"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
