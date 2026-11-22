@@ -1,28 +1,28 @@
-# Nyx AI — Android
+# Nyx AI — Android nativo
 
-Primeira versão de teste do aplicativo Android do site principal da Nyx.
+Aplicativo Android nativo da Nyx, desenvolvido em Java 8 + XML, sem WebView.
 
-## Compatibilidade planejada
+## Estrutura
 
-- Java 8
-- Interface XML tradicional
-- Activity Android sem dependências externas
-- WebView para exibir o site publicado
+- `AndroidManifest.xml`: manifesto e permissões do aplicativo.
+- `src/com/nyxai/android/MainActivity.java`: tela principal, entrada por voz via reconhecedor do Android e síntese de fala (TTS).
+- `res/layout/activity_main.xml`: interface nativa.
 
-## Importar no APK Builder
+## Estado atual
 
-Use a pasta `android/` como referência do projeto. A estrutura interna segue o formato apresentado pelo APK Builder:
+- Interface nativa inicial em tema escuro/roxo.
+- Campo de conversa e botões de enviar/falar.
+- Entrada de voz usando o serviço de reconhecimento disponível no Android.
+- Infraestrutura inicial de Text-to-Speech em português do Brasil.
+- Nenhuma WebView ou carregamento do site.
 
-- `AndroidManifest.xml`
-- `src/com/nyxai/android/MainActivity.java`
-- `res/layout/activity_main.xml`
-- `res/values/strings.xml`
-- `assets/`, `jniLibs/` e `libs/` (pastas opcionais)
+## Próximas etapas
 
-Se o Builder pedir uma pasta de projeto já criada, copie o conteúdo desta pasta para dentro do projeto Java + XML gerado por ele, substituindo os arquivos de demonstração correspondentes.
+1. Integrar a API da Groq por uma camada segura, sem colocar chaves secretas no APK.
+2. Criar o catálogo de ferramentas nativas e o executor de tarefas com permissões explícitas.
+3. Implementar controles de privacidade, confirmações para ações sensíveis e registro visível das ações.
+4. Testar em diferentes versões e fabricantes Android.
 
-## Como funciona
+## Compilação
 
-O aplicativo abre `https://nyx-bot-creator.vercel.app/` em uma WebView. JavaScript e armazenamento DOM estão habilitados para permitir que a aplicação web funcione. Links externos são encaminhados ao aplicativo apropriado do Android; a navegação no domínio principal permanece dentro do app.
-
-Esta versão precisa ser compilada e testada no APK Builder. O repositório ainda não contém um APK compilado.
+Importe a pasta `android/` no CindraStudio e configure o projeto conforme o formato Android suportado pelo compilador.
