@@ -78,7 +78,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         buildInterface();
         loadHistory();
         if (readApiKey() == null) handler.postDelayed(this::showApiSetup, 350);
-        else addMessage("Nyx", "Oi! Sou a Nyx. Estou pronta para conversar com você. 💜");
+        else if (history.isEmpty()) addMessage("Nyx", "Oi! Sou a Nyx. Estou pronta para conversar com você. 💜");
     }
 
     private int dp(float value) {
@@ -144,7 +144,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         actions.addView(sendButton, sendParams);
         root.addView(actions);
         setContentView(root);
-        addMessage("Nyx", "Oi! Sou a Nyx. Como posso ajudar? 💜");
     }
 
     private Button button(String label) {
