@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Nyx AI</string>
-    <string name="site_url">https://nyx-bot-creator.vercel.app/</string>
-    <string name="browser_unavailable">Não foi possível abrir este link.</string>
 </resources>
