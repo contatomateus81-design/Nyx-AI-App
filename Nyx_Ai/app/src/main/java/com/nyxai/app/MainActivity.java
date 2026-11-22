@@ -76,6 +76,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         tts = new TextToSpeech(this, this);
         memory = getSharedPreferences(PREFS, MODE_PRIVATE).getString("nyx_memory", "");
         buildInterface();
+        loadHistory();
         if (readApiKey() == null) handler.postDelayed(this::showApiSetup, 350);
         else addMessage("Nyx", "Oi! Sou a Nyx. Estou pronta para conversar com você. 💜");
     }
@@ -197,6 +198,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     if (!voiceEnabled && tts != null) tts.stop();
                 } else if (which == 2) {
                     history.clear();
+                    saveHistory();
                     messageList.removeAllViews();
                     addMessage("Nyx", "Conversa limpa. Podemos começar de novo. 💜");
                 } else new AlertDialog.Builder(this).setTitle("Nyx AI")
@@ -268,7 +270,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         input.setText("");
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(input.getWindowToken(), 0);
         addMessage("Você", message);
-        try { history.add(new JSONObject().put("role", "user").put("content", message)); }
+        try { history.add(new JSONObject().put("role", "user").put("content", message)); saveHistory(); }
         catch (Exception ignored) {}
         busy = true;
         sendButton.setEnabled(false);
@@ -316,7 +318,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             handler.post(() -> {
                 removeThinkingBubble();
                 addMessage("Nyx", finalVisible);
-                try { history.add(new JSONObject().put("role", "assistant").put("content", answer)); } catch (Exception ignored) {}
+                try { history.add(new JSONObject().put("role", "assistant").put("content", answer)); saveHistory(); } catch (Exception ignored) {}
                 if (voiceEnabled && tts != null) tts.speak(finalVisible, TextToSpeech.QUEUE_FLUSH, null, "nyx_reply");
                 if (finalAction != null) handleAction(finalAction);
                 finishRequest();
@@ -384,6 +386,27 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         } catch (Exception e) {
             Toast.makeText(this, "Não consegui executar essa ação.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void loadHistory() {
+        try {
+            JSONArray saved = new JSONArray(getSharedPreferences(PREFS, MODE_PRIVATE).getString("nyx_chat_history", "[]"));
+            for (int i = 0; i < saved.length(); i++) {
+                JSONObject item = saved.optJSONObject(i);
+                if (item != null) {
+                    history.add(item);
+                    addMessage(item.optString("role").equals("user") ? "Você" : "Nyx", item.optString("content"));
+                }
+            }
+        } catch (Exception ignored) { history.clear(); }
+    }
+
+    private void saveHistory() {
+        JSONArray saved = new JSONArray();
+        int start = Math.max(0, history.size() - 60);
+        for (int i = start; i < history.size(); i++) saved.put(history.get(i));
+        getSharedPreferences(PREFS, MODE_PRIVATE).edit().putString("nyx_chat_history", saved.toString()).apply();
     }
 
     private void startVoiceInput() {
