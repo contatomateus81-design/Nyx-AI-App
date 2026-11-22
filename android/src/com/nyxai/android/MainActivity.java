@@ -132,7 +132,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         instructions.setMovementMethod(LinkMovementMethod.getInstance());
         scroll.addView(instructions);
         content.addView(scroll, new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1));
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(280)));
 
         TextView fieldLabel = new TextView(this);
         fieldLabel.setText("Sua chave da API Groq");
