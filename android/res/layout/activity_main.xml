@@ -1,14 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     android:background="#090611">
 
-    <WebView
-        android:id="@+id/webview"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#090611"
-        android:overScrollMode="never" />
+        android:layout_height="wrap_content"
+        android:text="NYX AI"
+        android:textColor="#C5A3FF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="6dp" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sua assistente pessoal"
+        android:textColor="#B8ADC9"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:paddingBottom="24dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:background="#151020"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/conversation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nyx: Oi! Sou a Nyx. Como posso ajudar?"
+            android:textColor="#F4EFFA"
+            android:textSize="16sp"
+            android:lineSpacingExtra="6dp" />
+    </ScrollView>
+
+    <EditText
+        android:id="@+id/message_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:hint="Converse com a Nyx..."
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLines="4"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A99DBB"
+        android:backgroundTint="#9B6BDB"
+        android:padding="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/voice_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="FALAR"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#54317D" />
+
+        <Button
+            android:id="@+id/send_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:text="ENVIAR"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#7546A8" />
+    </LinearLayout>
+</LinearLayout>
