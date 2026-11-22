@@ -318,7 +318,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             handler.post(() -> {
                 removeThinkingBubble();
                 addMessage("Nyx", finalVisible);
-                try { history.add(new JSONObject().put("role", "assistant").put("content", answer)); saveHistory(); } catch (Exception ignored) {}
+                try { history.add(new JSONObject().put("role", "assistant").put("content", finalVisible)); saveHistory(); } catch (Exception ignored) {}
                 if (voiceEnabled && tts != null) tts.speak(finalVisible, TextToSpeech.QUEUE_FLUSH, null, "nyx_reply");
                 if (finalAction != null) handleAction(finalAction);
                 finishRequest();
@@ -392,6 +392,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private void loadHistory() {
         try {
             JSONArray saved = new JSONArray(getSharedPreferences(PREFS, MODE_PRIVATE).getString("nyx_chat_history", "[]"));
+            if (saved.length() > 0) messageList.removeAllViews();
             for (int i = 0; i < saved.length(); i++) {
                 JSONObject item = saved.optJSONObject(i);
                 if (item != null) {
